@@ -80,11 +80,11 @@ int main(int argc, char *argv[]) {
     int winner = game();
     wins[winner]++;
   }
+  char * tabs = malloc(TABS + 1);
+  assert(tabs);
+  memset(tabs,'\t',TABS);
+  tabs[TABS] = 0;
   for(int p=0; p<PLAYERS; p++){
-    char * tabs = malloc(TABS + 1);
-    assert(tabs);
-    memset(tabs,'\t',TABS);
-    tabs[TABS] = 0;
     double pos = (double)p / (double)PLAYERS;
     double ei = (double)wins[p] / (double)GAMES * (double)PLAYERS;
     printf("%d\t%f%s%f\n", p, pos, tabs, ei);
